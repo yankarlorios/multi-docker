@@ -6,20 +6,20 @@ services:
   - docker
 
 before_install:
-  - docker build -t yrios/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t yrios056/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run yrios/react-test npm test -- --coverage
+  - docker run yrios056/react-test npm test -- --coverage
 
 after_seccess:
-  - docker build -t yrios/multi-client ./client
-  - docker build -t yrios/multi-nginx ./nginx
-  - docker build -t yrios/multi-server ./server
-  - docker build -t yrios/multi-worker ./worker
+  - docker build -t yrios056/multi-client ./client
+  - docker build -t yrios056/multi-nginx ./nginx
+  - docker build -t yrios056/multi-server ./server
+  - docker build -t yrios056/multi-worker ./worker
 # login
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
-  - docker push yrios/multi-client
-  - docker push yrios/multi-nginx
-  - docker push yrios/multi-server
-  - docker push yrios/multi-worker
+  - docker push yrios056/multi-client
+  - docker push yrios056/multi-nginx
+  - docker push yrios056/multi-server
+  - docker push yrios056/multi-worker
