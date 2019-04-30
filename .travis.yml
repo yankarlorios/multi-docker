@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t yrios/react-test -f ./client/Dockerfile.dev .
+  - docker build -t yrios/react-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run yrios/react-test npm test -- --coverage
