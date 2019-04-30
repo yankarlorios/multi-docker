@@ -11,7 +11,7 @@ before_install:
 script:
   - docker run yrios056/react-test npm test -- --coverage
 
-after_seccess:
+after_success:
   - docker build -t yrios056/multi-client ./client
   - docker build -t yrios056/multi-nginx ./nginx
   - docker build -t yrios056/multi-server ./server
